@@ -55,7 +55,7 @@ Be sure to have I2C interface enable:
 
 Compile the module:
 
-	make
+	KERNEL_SRC=/usr/src/linux-headers-$(uname -r)/ make
 
 Insert the module into the kernel:
 

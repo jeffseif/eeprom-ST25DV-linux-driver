@@ -313,7 +313,7 @@ static int st25dv_detect(struct i2c_client *client, struct i2c_board_info *info)
 		printk(KERN_WARNING "not st25dv eeprom.\n");
 		return -ENODEV;
 	}
-	if(!i2c_new_dummy(client->adapter, SYS_ADDR)){
+	if(!i2c_new_dummy_device(client->adapter, SYS_ADDR)){
 		printk(KERN_WARNING "not st25dv eeprom.\n");
 		return -ENODEV;
 	}
@@ -340,7 +340,7 @@ static int st25dv_probe(struct i2c_client *client,
 	struct i2c_client *client_sys_area;//i2c_client of the system area
 
 	/*dummy client for the system area at addr 0x57*/
-	client_sys_area = i2c_new_dummy(client->adapter, SYS_ADDR);
+	client_sys_area = i2c_new_dummy_device(client->adapter, SYS_ADDR);
 	if(!client_sys_area){
 		printk(KERN_WARNING "st25dv sys eeprom not detected.\n");
 		return -ENODEV;
